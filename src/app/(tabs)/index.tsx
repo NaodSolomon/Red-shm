@@ -20,7 +20,7 @@ const sections = [
   { title: 'Featured traditional wear', subtitle: 'Habesha kemis, netela and more',
     items: organic.filter((product) => product.category === 'Traditional wear').slice(0, 4) },
   { title: 'Recommended for you', items: organic.filter((product) => product.category !== 'Traditional wear').slice(0, 4) },
-  { title: 'Recently listed', items: organic.filter((product) => Number.isFinite(Date.parse(product.createdAt))).sort(newestFirst).slice(0, 6) },
+  { title: 'Recently listed', items: organic.filter((product) => Number.isFinite(Date.parse(product.createdAt ?? ''))).sort(newestFirst).slice(0, 6) },
   { title: 'Sponsored listing', items: active.filter((product) => product.sponsored) },
 ].filter((section) => section.items.length > 0);
 

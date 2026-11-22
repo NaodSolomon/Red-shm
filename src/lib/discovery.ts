@@ -17,7 +17,7 @@ export const defaultFilters: Filters = {
 };
 
 function listingTime(product: Product) {
-  const timestamp = Date.parse(product.createdAt);
+  const timestamp = Date.parse(product.createdAt ?? '');
   return Number.isFinite(timestamp) ? timestamp : -Infinity;
 }
 
@@ -39,7 +39,7 @@ export function discover(products: Product[], query: string, filters: Filters) {
   const minimum = filters.minimum.trim() ? Number(filters.minimum) : 0;
   const maximum = filters.maximum.trim() ? Number(filters.maximum) : Infinity;
   const matches = products.filter((product) => {
-    const text = [product.title, product.description, product.category].join(' ').toLowerCase();
+    const text = [product.title, product.description, product.category, product.subcategory].join(' ').toLowerCase();
     return terms.every((term) => text.includes(term))
       && (!filters.category || filters.category === product.category)
       && (!filters.condition || filters.condition === product.condition)

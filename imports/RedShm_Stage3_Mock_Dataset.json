@@ -1,0 +1,2117 @@
+{
+  "meta": {
+    "title": "Red-shm Stage 3 mock dataset",
+    "version": "1.0",
+    "created": "2026-11-22",
+    "fictional": true,
+    "purpose": "For future Stage 3 integration only; not real marketplace offers",
+    "currency": "ETB",
+    "location": "Addis Ababa",
+    "expectedProductImages": 180,
+    "requiredAvatars": 12
+  },
+  "sellers": [
+    {
+      "sellerId": "SEL-001",
+      "displayName": "Liya Bekele",
+      "handle": "@liya.onceworn",
+      "city": "Addis Ababa",
+      "area": "Bole",
+      "focus": "Wedding & occasion dresses",
+      "bio": "I resell formal pieces I wore once for family weddings and celebrations.",
+      "pickupArea": "Bole",
+      "fulfillment": "Seller-arranged within Addis Ababa",
+      "avatarPath": "assets/mock/sellers/SEL-001/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-001/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-002",
+      "displayName": "Saron Tesfaye",
+      "handle": "@saron.tibeb",
+      "city": "Addis Ababa",
+      "area": "CMC",
+      "focus": "Everyday cultural wear",
+      "bio": "Carefully kept dresses, shawls and embroidered pieces from my own wardrobe.",
+      "pickupArea": "CMC",
+      "fulfillment": "Pickup or seller-arranged delivery",
+      "avatarPath": "assets/mock/sellers/SEL-002/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-002/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-003",
+      "displayName": "Rahel Gebremariam",
+      "handle": "@rahel.eventcloset",
+      "city": "Addis Ababa",
+      "area": "Ayat",
+      "focus": "Engagement & bridal looks",
+      "bio": "Occasion outfits and traditional layers ready for their next special event.",
+      "pickupArea": "Ayat",
+      "fulfillment": "Pickup preferred; delivery by arrangement",
+      "avatarPath": "assets/mock/sellers/SEL-003/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-003/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-004",
+      "displayName": "Bethlehem Haile",
+      "handle": "@bethlehem.heritage",
+      "city": "Addis Ababa",
+      "area": "Gerji",
+      "focus": "Colorful traditional clothing",
+      "bio": "Vibrant, gently used cultural pieces from holidays and family events.",
+      "pickupArea": "Gerji",
+      "fulfillment": "Pickup or seller-arranged delivery",
+      "avatarPath": "assets/mock/sellers/SEL-004/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-004/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-005",
+      "displayName": "Hiwot Mengistu",
+      "handle": "@hiwot.shawls",
+      "city": "Addis Ababa",
+      "area": "Kazanchis",
+      "focus": "Shawls & wraps",
+      "bio": "I am passing along traditional wraps and modest layers I no longer use.",
+      "pickupArea": "Kazanchis",
+      "fulfillment": "Pickup preferred; delivery by arrangement",
+      "avatarPath": "assets/mock/sellers/SEL-005/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-005/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-006",
+      "displayName": "Feven Alemu",
+      "handle": "@feven.culturecloset",
+      "city": "Addis Ababa",
+      "area": "Sar Bet",
+      "focus": "Cultural accessories",
+      "bio": "A small collection of belts, jewelry and event accessories from my closet.",
+      "pickupArea": "Sar Bet",
+      "fulfillment": "Pickup or seller-arranged delivery",
+      "avatarPath": "assets/mock/sellers/SEL-006/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-006/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-007",
+      "displayName": "Dawit Kebede",
+      "handle": "@dawit.occasions",
+      "city": "Addis Ababa",
+      "area": "Megenagna",
+      "focus": "Men's traditional outfits",
+      "bio": "Traditional outfits and accessories I wore to ceremonies and holidays.",
+      "pickupArea": "Megenagna",
+      "fulfillment": "Pickup preferred; delivery by arrangement",
+      "avatarPath": "assets/mock/sellers/SEL-007/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-007/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-008",
+      "displayName": "Yohannes Tadesse",
+      "handle": "@yohannes.heritage",
+      "city": "Addis Ababa",
+      "area": "Arat Kilo",
+      "focus": "Men's cultural layers",
+      "bio": "Well-kept traditional sets, gabi and ceremonial layers from my wardrobe.",
+      "pickupArea": "Arat Kilo",
+      "fulfillment": "Pickup or seller-arranged delivery",
+      "avatarPath": "assets/mock/sellers/SEL-008/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-008/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-009",
+      "displayName": "Meron Desta",
+      "handle": "@meron.festivalcloset",
+      "city": "Addis Ababa",
+      "area": "Lebu",
+      "focus": "Festival & holiday looks",
+      "bio": "Holiday dresses and cultural accessories looking for a second owner.",
+      "pickupArea": "Lebu",
+      "fulfillment": "Pickup or seller-arranged delivery",
+      "avatarPath": "assets/mock/sellers/SEL-009/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-009/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-010",
+      "displayName": "Abel Girma",
+      "handle": "@abel.resale",
+      "city": "Addis Ababa",
+      "area": "Jemo",
+      "focus": "Cultural + everyday resale",
+      "bio": "I list my own celebration outfits alongside a few everyday belongings.",
+      "pickupArea": "Jemo",
+      "fulfillment": "Pickup preferred; delivery by arrangement",
+      "avatarPath": "assets/mock/sellers/SEL-010/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-010/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-011",
+      "displayName": "Hana Assefa",
+      "handle": "@hana.secondlife",
+      "city": "Addis Ababa",
+      "area": "Summit",
+      "focus": "Modern secondhand fashion",
+      "bio": "Gently used clothes, shoes and bags that deserve another round.",
+      "pickupArea": "Summit",
+      "fulfillment": "Pickup or seller-arranged delivery",
+      "avatarPath": "assets/mock/sellers/SEL-011/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-011/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    },
+    {
+      "sellerId": "SEL-012",
+      "displayName": "Natnael Fekadu",
+      "handle": "@natnael.relist",
+      "city": "Addis Ababa",
+      "area": "Piassa",
+      "focus": "Home & electronics resale",
+      "bio": "Practical items from home: checked and described as carefully as possible.",
+      "pickupArea": "Piassa",
+      "fulfillment": "Pickup preferred; delivery by arrangement",
+      "avatarPath": "assets/mock/sellers/SEL-012/avatar.jpg",
+      "coverPathOptional": "assets/mock/sellers/SEL-012/cover.jpg",
+      "rating": null,
+      "verificationStatus": "not verified (demo)"
+    }
+  ],
+  "listings": [
+    {
+      "listingId": "RSH-001",
+      "sellerId": "SEL-001",
+      "title": "Ivory kemis with gold tibeb",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 7800,
+      "condition": "Like new",
+      "size": "M",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Worn once for a wedding reception; clean hem and intact embroidery.",
+      "city": "Addis Ababa",
+      "area": "Bole",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-001/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-001/02-detail.jpg",
+          "brief": "Gold embroidery close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-001/03-condition.jpg",
+          "brief": "Full back and hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-002",
+      "sellerId": "SEL-001",
+      "title": "White-and-silver celebration kemis",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 6900,
+      "condition": "Like new",
+      "size": "S",
+      "status": "Active",
+      "sponsored": false,
+      "description": "One-event dress with silver border and fitted waist.",
+      "city": "Addis Ababa",
+      "area": "Bole",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-002/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-002/02-detail.jpg",
+          "brief": "Silver border stitching"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-002/03-condition.jpg",
+          "brief": "Back zipper and hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-003",
+      "sellerId": "SEL-001",
+      "title": "Cream netela with woven edge",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1450,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Lightweight wrap with a cream base and patterned edge.",
+      "city": "Addis Ababa",
+      "area": "Bole",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-003/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-003/02-detail.jpg",
+          "brief": "Woven edge detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-003/03-condition.jpg",
+          "brief": "Spread-out fabric condition"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-004",
+      "sellerId": "SEL-001",
+      "title": "Burgundy tibeb waist sash",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 950,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Traditional-look embroidered sash used for one festive outfit.",
+      "city": "Addis Ababa",
+      "area": "Bole",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-004/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-004/02-detail.jpg",
+          "brief": "Pattern and thread detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-004/03-condition.jpg",
+          "brief": "Fastening and full length"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-005",
+      "sellerId": "SEL-001",
+      "title": "Champagne occasion kemis",
+      "category": "Wedding & Occasion",
+      "kind": "cultural",
+      "priceEtb": 9300,
+      "condition": "Like new",
+      "size": "M",
+      "status": "Sold",
+      "sponsored": false,
+      "description": "Dress worn for a family event; delicate champagne-colored accents.",
+      "city": "Addis Ababa",
+      "area": "Bole",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-005/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-005/02-detail.jpg",
+          "brief": "Neckline embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-001/products/RSH-005/03-condition.jpg",
+          "brief": "Back and lower hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-006",
+      "sellerId": "SEL-002",
+      "title": "Sky-blue tibeb-trim kemis",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 5600,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Soft blue accents and a comfortable fit; minor wear shown in photos.",
+      "city": "Addis Ababa",
+      "area": "CMC",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-006/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-006/02-detail.jpg",
+          "brief": "Blue trim close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-006/03-condition.jpg",
+          "brief": "Sleeves and back"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-007",
+      "sellerId": "SEL-002",
+      "title": "White everyday cotton kemis",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 3500,
+      "condition": "Good",
+      "size": "L",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Simple white dress suitable for casual cultural gatherings.",
+      "city": "Addis Ababa",
+      "area": "CMC",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-007/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-007/02-detail.jpg",
+          "brief": "Fabric texture"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-007/03-condition.jpg",
+          "brief": "Full back and seam"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-008",
+      "sellerId": "SEL-002",
+      "title": "Black-and-white netela",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1200,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Neatly stored wrap with a contrasting woven end.",
+      "city": "Addis Ababa",
+      "area": "CMC",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-008/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-008/02-detail.jpg",
+          "brief": "Border pattern"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-008/03-condition.jpg",
+          "brief": "Fully unfolded textile"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-009",
+      "sellerId": "SEL-002",
+      "title": "Tibeb-embroidered light jacket",
+      "category": "Traditional Outerwear",
+      "kind": "cultural",
+      "priceEtb": 4300,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Light jacket worn for holiday gatherings; no missing buttons.",
+      "city": "Addis Ababa",
+      "area": "CMC",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-009/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-009/02-detail.jpg",
+          "brief": "Cuff and trim"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-009/03-condition.jpg",
+          "brief": "Back and inner seams"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-010",
+      "sellerId": "SEL-002",
+      "title": "Ivory embroidered two-piece set",
+      "category": "Traditional Sets",
+      "kind": "cultural",
+      "priceEtb": 7600,
+      "condition": "Like new",
+      "size": "S",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Matching top and skirt with subtle woven details.",
+      "city": "Addis Ababa",
+      "area": "CMC",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-010/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-010/02-detail.jpg",
+          "brief": "Top embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-002/products/RSH-010/03-condition.jpg",
+          "brief": "Skirt back and lining"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-011",
+      "sellerId": "SEL-003",
+      "title": "White bridal-style kemis",
+      "category": "Wedding & Occasion",
+      "kind": "cultural",
+      "priceEtb": 12800,
+      "condition": "Like new",
+      "size": "M",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Bridal-style traditional dress worn once for engagement photos.",
+      "city": "Addis Ababa",
+      "area": "Ayat",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-011/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-011/02-detail.jpg",
+          "brief": "Neckline and bodice"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-011/03-condition.jpg",
+          "brief": "Full back and train"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-012",
+      "sellerId": "SEL-003",
+      "title": "Gold-trim traditional cape",
+      "category": "Traditional Outerwear",
+      "kind": "cultural",
+      "priceEtb": 5100,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Statement outer layer that pairs with formal Habesha outfits.",
+      "city": "Addis Ababa",
+      "area": "Ayat",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-012/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-012/02-detail.jpg",
+          "brief": "Gold trim and clasp"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-012/03-condition.jpg",
+          "brief": "Cape spread flat"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-013",
+      "sellerId": "SEL-003",
+      "title": "Pearl-toned occasion shawl",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1850,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Soft occasion wrap used only for a photo session.",
+      "city": "Addis Ababa",
+      "area": "Ayat",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-013/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-013/02-detail.jpg",
+          "brief": "Edge weave"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-013/03-condition.jpg",
+          "brief": "Full wrap unfolded"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-014",
+      "sellerId": "SEL-003",
+      "title": "Embroidered bridal belt",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 1550,
+      "condition": "Good",
+      "size": "Adjustable",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Decorative belt with light signs of use near clasp.",
+      "city": "Addis Ababa",
+      "area": "Ayat",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-014/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-014/02-detail.jpg",
+          "brief": "Decorative front panel"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-014/03-condition.jpg",
+          "brief": "Clasp and wear detail"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-015",
+      "sellerId": "SEL-003",
+      "title": "Blush-and-ivory dress set",
+      "category": "Wedding & Occasion",
+      "kind": "cultural",
+      "priceEtb": 8900,
+      "condition": "Like new",
+      "size": "S",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Two-piece outfit for cultural wedding events.",
+      "city": "Addis Ababa",
+      "area": "Ayat",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-015/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-015/02-detail.jpg",
+          "brief": "Sleeve trim"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-003/products/RSH-015/03-condition.jpg",
+          "brief": "Back and skirt lining"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-016",
+      "sellerId": "SEL-004",
+      "title": "Emerald accent kemis",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 6600,
+      "condition": "Like new",
+      "size": "L",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Traditional white dress with emerald-colored embroidery.",
+      "city": "Addis Ababa",
+      "area": "Gerji",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-016/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-016/02-detail.jpg",
+          "brief": "Green embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-016/03-condition.jpg",
+          "brief": "Back and hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-017",
+      "sellerId": "SEL-004",
+      "title": "Red geometric tibeb kemis",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 5900,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Bright patterned trim; worn on two holiday occasions.",
+      "city": "Addis Ababa",
+      "area": "Gerji",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-017/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-017/02-detail.jpg",
+          "brief": "Geometric weave"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-017/03-condition.jpg",
+          "brief": "Sleeves and rear"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-018",
+      "sellerId": "SEL-004",
+      "title": "Mustard festival shawl",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1600,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Warm-toned festive wrap with a visible woven edge.",
+      "city": "Addis Ababa",
+      "area": "Gerji",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-018/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-018/02-detail.jpg",
+          "brief": "Weave close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-018/03-condition.jpg",
+          "brief": "Spread-out fabric"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-019",
+      "sellerId": "SEL-004",
+      "title": "Colorful embroidered vest",
+      "category": "Traditional Outerwear",
+      "kind": "cultural",
+      "priceEtb": 2900,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Layering vest with detailed colorful stitching.",
+      "city": "Addis Ababa",
+      "area": "Gerji",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-019/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-019/02-detail.jpg",
+          "brief": "Embroidery and closures"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-019/03-condition.jpg",
+          "brief": "Inner lining and back"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-020",
+      "sellerId": "SEL-004",
+      "title": "Coral-trim holiday kemis",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 4800,
+      "condition": "Good",
+      "size": "S",
+      "status": "Sold",
+      "sponsored": false,
+      "description": "Holiday dress with coral edging and normal light wear.",
+      "city": "Addis Ababa",
+      "area": "Gerji",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-020/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-020/02-detail.jpg",
+          "brief": "Coral trim detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-004/products/RSH-020/03-condition.jpg",
+          "brief": "Back and lower hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-021",
+      "sellerId": "SEL-005",
+      "title": "Lightweight white netela",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1100,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Clean traditional wrap, used briefly at a family celebration.",
+      "city": "Addis Ababa",
+      "area": "Kazanchis",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-021/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-021/02-detail.jpg",
+          "brief": "Border close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-021/03-condition.jpg",
+          "brief": "Entire textile unfolded"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-022",
+      "sellerId": "SEL-005",
+      "title": "Gold-accent gabi wrap",
+      "category": "Traditional Outerwear",
+      "kind": "cultural",
+      "priceEtb": 2900,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Warm gabi with gold-colored decorative bands.",
+      "city": "Addis Ababa",
+      "area": "Kazanchis",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-022/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-022/02-detail.jpg",
+          "brief": "Band weave detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-022/03-condition.jpg",
+          "brief": "Full blanket and corners"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-023",
+      "sellerId": "SEL-005",
+      "title": "Cream soft-woven gabi",
+      "category": "Traditional Outerwear",
+      "kind": "cultural",
+      "priceEtb": 2600,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Cozy traditional wrap with light signs of use.",
+      "city": "Addis Ababa",
+      "area": "Kazanchis",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-023/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-023/02-detail.jpg",
+          "brief": "Yarn texture"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-023/03-condition.jpg",
+          "brief": "Corners and edges"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-024",
+      "sellerId": "SEL-005",
+      "title": "Olive-edge embroidered netela",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1300,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Netela with olive-toned edge; stored carefully.",
+      "city": "Addis Ababa",
+      "area": "Kazanchis",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-024/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-024/02-detail.jpg",
+          "brief": "Olive stripe"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-024/03-condition.jpg",
+          "brief": "Fully opened wrap"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-025",
+      "sellerId": "SEL-005",
+      "title": "Patterned cultural scarf",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 850,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Small patterned accessory for traditional outfits.",
+      "city": "Addis Ababa",
+      "area": "Kazanchis",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-025/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-025/02-detail.jpg",
+          "brief": "Print and texture"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-005/products/RSH-025/03-condition.jpg",
+          "brief": "Fold-out and edge seams"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-026",
+      "sellerId": "SEL-006",
+      "title": "Gold-toned ceremonial necklace",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 1900,
+      "condition": "Good",
+      "size": "Adjustable",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Costume jewelry used for special events; not solid gold.",
+      "city": "Addis Ababa",
+      "area": "Sar Bet",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-026/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-026/02-detail.jpg",
+          "brief": "Pendant and chain links"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-026/03-condition.jpg",
+          "brief": "Clasp and condition"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-027",
+      "sellerId": "SEL-006",
+      "title": "White bead celebration earrings",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 650,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Event earrings; sanitized before photographing.",
+      "city": "Addis Ababa",
+      "area": "Sar Bet",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-027/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-027/02-detail.jpg",
+          "brief": "Bead and hook details"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-027/03-condition.jpg",
+          "brief": "Pair together with scale"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-028",
+      "sellerId": "SEL-006",
+      "title": "Tibeb-pattern crossbody pouch",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 1800,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Small patterned bag for holiday accessories.",
+      "city": "Addis Ababa",
+      "area": "Sar Bet",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-028/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-028/02-detail.jpg",
+          "brief": "Woven pattern"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-028/03-condition.jpg",
+          "brief": "Interior and strap"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-029",
+      "sellerId": "SEL-006",
+      "title": "Embroidered traditional belt",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 1200,
+      "condition": "Good",
+      "size": "Adjustable",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Decorative fabric belt with intact fastening.",
+      "city": "Addis Ababa",
+      "area": "Sar Bet",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-029/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-029/02-detail.jpg",
+          "brief": "Embroidery close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-029/03-condition.jpg",
+          "brief": "Clasp and reverse"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-030",
+      "sellerId": "SEL-006",
+      "title": "Cultural headband set",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 700,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Two coordinated headbands used for a ceremony.",
+      "city": "Addis Ababa",
+      "area": "Sar Bet",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-030/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-030/02-detail.jpg",
+          "brief": "Fabric detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-006/products/RSH-030/03-condition.jpg",
+          "brief": "Both items flat"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-031",
+      "sellerId": "SEL-007",
+      "title": "White mens cultural shirt",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 4100,
+      "condition": "Like new",
+      "size": "L",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Traditional white shirt worn for an Easter celebration.",
+      "city": "Addis Ababa",
+      "area": "Megenagna",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-031/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-031/02-detail.jpg",
+          "brief": "Collar embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-031/03-condition.jpg",
+          "brief": "Back and cuffs"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-032",
+      "sellerId": "SEL-007",
+      "title": "Cream embroidered mens set",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 6500,
+      "condition": "Good",
+      "size": "L",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Matching shirt and trouser set for formal occasions.",
+      "city": "Addis Ababa",
+      "area": "Megenagna",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-032/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-032/02-detail.jpg",
+          "brief": "Chest embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-032/03-condition.jpg",
+          "brief": "Trousers and back"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-033",
+      "sellerId": "SEL-007",
+      "title": "Black-trim cultural tunic",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 4500,
+      "condition": "Like new",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Formal tunic with contrasting trim, worn once.",
+      "city": "Addis Ababa",
+      "area": "Megenagna",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-033/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-033/02-detail.jpg",
+          "brief": "Trim and neckline"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-033/03-condition.jpg",
+          "brief": "Full rear and sleeve"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-034",
+      "sellerId": "SEL-007",
+      "title": "Traditional woven mens scarf",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1100,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Woven scarf for ceremonial outfits, minor fabric wear.",
+      "city": "Addis Ababa",
+      "area": "Megenagna",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-034/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-034/02-detail.jpg",
+          "brief": "Pattern edge"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-034/03-condition.jpg",
+          "brief": "Open scarf condition"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-035",
+      "sellerId": "SEL-007",
+      "title": "Ivory mens waistcoat",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 2600,
+      "condition": "Good",
+      "size": "L",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Waistcoat for traditional layered styling.",
+      "city": "Addis Ababa",
+      "area": "Megenagna",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-035/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-035/02-detail.jpg",
+          "brief": "Buttons and embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-007/products/RSH-035/03-condition.jpg",
+          "brief": "Rear and lining"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-036",
+      "sellerId": "SEL-008",
+      "title": "Mens white holiday ensemble",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 7300,
+      "condition": "Like new",
+      "size": "XL",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Traditional ensemble worn for a holiday service.",
+      "city": "Addis Ababa",
+      "area": "Arat Kilo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-036/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-036/02-detail.jpg",
+          "brief": "Embroidery and collar"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-036/03-condition.jpg",
+          "brief": "Pants and full back"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-037",
+      "sellerId": "SEL-008",
+      "title": "Cream gabi with stripe border",
+      "category": "Traditional Outerwear",
+      "kind": "cultural",
+      "priceEtb": 3200,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Heavy woven gabi with two colored border stripes.",
+      "city": "Addis Ababa",
+      "area": "Arat Kilo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-037/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-037/02-detail.jpg",
+          "brief": "Stripe weave"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-037/03-condition.jpg",
+          "brief": "Corners and full spread"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-038",
+      "sellerId": "SEL-008",
+      "title": "Navy-trim ceremonial shirt",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 4200,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Neat men's shirt with navy decorative stitching.",
+      "city": "Addis Ababa",
+      "area": "Arat Kilo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-038/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-038/02-detail.jpg",
+          "brief": "Navy embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-038/03-condition.jpg",
+          "brief": "Back seams and cuffs"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-039",
+      "sellerId": "SEL-008",
+      "title": "Brown woven cultural belt",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 1050,
+      "condition": "Good",
+      "size": "Adjustable",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Handwoven-style fabric belt with sturdy ends.",
+      "city": "Addis Ababa",
+      "area": "Arat Kilo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-039/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-039/02-detail.jpg",
+          "brief": "Weave texture"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-039/03-condition.jpg",
+          "brief": "Closure and reverse"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-040",
+      "sellerId": "SEL-008",
+      "title": "Off-white traditional shawl",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1400,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Sold",
+      "sponsored": false,
+      "description": "Lightweight shawl for gatherings and holiday wear.",
+      "city": "Addis Ababa",
+      "area": "Arat Kilo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-040/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-040/02-detail.jpg",
+          "brief": "Edge detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-008/products/RSH-040/03-condition.jpg",
+          "brief": "Full unfolded view"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-041",
+      "sellerId": "SEL-009",
+      "title": "Festival kemis with rose tibeb",
+      "category": "Habesha Kemis",
+      "kind": "cultural",
+      "priceEtb": 5300,
+      "condition": "Like new",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "White dress with rose-pink embroidery used at Timket.",
+      "city": "Addis Ababa",
+      "area": "Lebu",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-041/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-041/02-detail.jpg",
+          "brief": "Rose tibeb detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-041/03-condition.jpg",
+          "brief": "Back and hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-042",
+      "sellerId": "SEL-009",
+      "title": "Violet accented occasion dress",
+      "category": "Wedding & Occasion",
+      "kind": "cultural",
+      "priceEtb": 6100,
+      "condition": "Good",
+      "size": "L",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Formal cultural dress with violet trim and minor wear.",
+      "city": "Addis Ababa",
+      "area": "Lebu",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-042/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-042/02-detail.jpg",
+          "brief": "Violet neckline details"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-042/03-condition.jpg",
+          "brief": "Rear and cuffs"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-043",
+      "sellerId": "SEL-009",
+      "title": "Bright patterned holiday netela",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1450,
+      "condition": "Like new",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Colorful woven edge complements white traditional wear.",
+      "city": "Addis Ababa",
+      "area": "Lebu",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-043/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-043/02-detail.jpg",
+          "brief": "Pattern close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-043/03-condition.jpg",
+          "brief": "Wrap fully opened"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-044",
+      "sellerId": "SEL-009",
+      "title": "Festive white two-piece outfit",
+      "category": "Traditional Sets",
+      "kind": "cultural",
+      "priceEtb": 6800,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Coordinated cultural top and long skirt.",
+      "city": "Addis Ababa",
+      "area": "Lebu",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-044/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-044/02-detail.jpg",
+          "brief": "Top and wrist trim"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-044/03-condition.jpg",
+          "brief": "Skirt reverse and seams"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-045",
+      "sellerId": "SEL-009",
+      "title": "Rose-gold costume belt",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 1100,
+      "condition": "Good",
+      "size": "Adjustable",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Event belt with rose-gold finish; cosmetic wear disclosed.",
+      "city": "Addis Ababa",
+      "area": "Lebu",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-045/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-045/02-detail.jpg",
+          "brief": "Surface finish detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-009/products/RSH-045/03-condition.jpg",
+          "brief": "Clasp and wear spot"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-046",
+      "sellerId": "SEL-010",
+      "title": "White mens embroidered tunic",
+      "category": "Men's Traditional Wear",
+      "kind": "cultural",
+      "priceEtb": 3800,
+      "condition": "Good",
+      "size": "M",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Traditional tunic worn for a graduation celebration.",
+      "city": "Addis Ababa",
+      "area": "Jemo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-046/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-046/02-detail.jpg",
+          "brief": "Front embroidery"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-046/03-condition.jpg",
+          "brief": "Back and collar"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-047",
+      "sellerId": "SEL-010",
+      "title": "Grey-pattern cultural shawl",
+      "category": "Netela & Shawls",
+      "kind": "cultural",
+      "priceEtb": 1050,
+      "condition": "Good",
+      "size": "One size",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Woven shawl suitable for cooler evenings.",
+      "city": "Addis Ababa",
+      "area": "Jemo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-047/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-047/02-detail.jpg",
+          "brief": "Grey edge pattern"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-047/03-condition.jpg",
+          "brief": "Unfolded scarf"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-048",
+      "sellerId": "SEL-010",
+      "title": "Traditional cream waist belt",
+      "category": "Cultural Accessories",
+      "kind": "cultural",
+      "priceEtb": 750,
+      "condition": "Like new",
+      "size": "Adjustable",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Simple fabric accessory for a traditional outfit.",
+      "city": "Addis Ababa",
+      "area": "Jemo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-048/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-048/02-detail.jpg",
+          "brief": "Texture close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-048/03-condition.jpg",
+          "brief": "Fastening and full length"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-049",
+      "sellerId": "SEL-010",
+      "title": "Black casual sneakers",
+      "category": "Bags & Shoes",
+      "kind": "general",
+      "priceEtb": 1850,
+      "condition": "Good",
+      "size": "EU 42",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Daily sneakers with visible sole wear; cleaned for photos.",
+      "city": "Addis Ababa",
+      "area": "Jemo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-049/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-049/02-detail.jpg",
+          "brief": "Side profile and sole"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-049/03-condition.jpg",
+          "brief": "Heel and size label"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-050",
+      "sellerId": "SEL-010",
+      "title": "Canvas weekday backpack",
+      "category": "Bags & Shoes",
+      "kind": "general",
+      "priceEtb": 1300,
+      "condition": "Good",
+      "size": "Medium",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Everyday backpack with functional zips and modest wear.",
+      "city": "Addis Ababa",
+      "area": "Jemo",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-050/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-050/02-detail.jpg",
+          "brief": "Compartments and zips"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-010/products/RSH-050/03-condition.jpg",
+          "brief": "Straps and base"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-051",
+      "sellerId": "SEL-011",
+      "title": "Sage linen blazer",
+      "category": "Women's Fashion",
+      "kind": "general",
+      "priceEtb": 3400,
+      "condition": "Like new",
+      "size": "M",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Light blazer worn twice; clean lining and buttons.",
+      "city": "Addis Ababa",
+      "area": "Summit",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-051/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-051/02-detail.jpg",
+          "brief": "Lapel and fabric"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-051/03-condition.jpg",
+          "brief": "Lining and back"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-052",
+      "sellerId": "SEL-011",
+      "title": "Blue straight-leg jeans",
+      "category": "Women's Fashion",
+      "kind": "general",
+      "priceEtb": 1700,
+      "condition": "Good",
+      "size": "W28",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Well-kept jeans with mild fading at the knees.",
+      "city": "Addis Ababa",
+      "area": "Summit",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-052/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-052/02-detail.jpg",
+          "brief": "Waist label and pockets"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-052/03-condition.jpg",
+          "brief": "Hem and worn areas"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-053",
+      "sellerId": "SEL-011",
+      "title": "Brown leather-look tote",
+      "category": "Bags & Shoes",
+      "kind": "general",
+      "priceEtb": 2150,
+      "condition": "Good",
+      "size": "Large",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Practical tote with light handle wear and clean interior.",
+      "city": "Addis Ababa",
+      "area": "Summit",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-053/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-053/02-detail.jpg",
+          "brief": "Hardware and material"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-053/03-condition.jpg",
+          "brief": "Interior and base"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-054",
+      "sellerId": "SEL-011",
+      "title": "Cream ankle boots",
+      "category": "Bags & Shoes",
+      "kind": "general",
+      "priceEtb": 2500,
+      "condition": "Good",
+      "size": "EU 39",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Ankle boots with minor scuffing visible in detail photo.",
+      "city": "Addis Ababa",
+      "area": "Summit",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-054/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-054/02-detail.jpg",
+          "brief": "Side and toe scuffs"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-054/03-condition.jpg",
+          "brief": "Soles and size label"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-055",
+      "sellerId": "SEL-011",
+      "title": "Black midi dress",
+      "category": "Women's Fashion",
+      "kind": "general",
+      "priceEtb": 1600,
+      "condition": "Like new",
+      "size": "S",
+      "status": "Sold",
+      "sponsored": false,
+      "description": "Simple evening dress worn once; no alterations.",
+      "city": "Addis Ababa",
+      "area": "Summit",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-055/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-055/02-detail.jpg",
+          "brief": "Fabric and neckline"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-011/products/RSH-055/03-condition.jpg",
+          "brief": "Back zip and hem"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-056",
+      "sellerId": "SEL-012",
+      "title": "Compact Bluetooth speaker",
+      "category": "Electronics",
+      "kind": "general",
+      "priceEtb": 2200,
+      "condition": "Good",
+      "size": "N/A",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Working portable speaker; battery life not guaranteed.",
+      "city": "Addis Ababa",
+      "area": "Piassa",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-056/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-056/02-detail.jpg",
+          "brief": "Ports and buttons"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-056/03-condition.jpg",
+          "brief": "Underside and wear"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-057",
+      "sellerId": "SEL-012",
+      "title": "Desk reading lamp",
+      "category": "Home & Living",
+      "kind": "general",
+      "priceEtb": 1250,
+      "condition": "Good",
+      "size": "N/A",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Adjustable lamp; tested to switch on before listing.",
+      "city": "Addis Ababa",
+      "area": "Piassa",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-057/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-057/02-detail.jpg",
+          "brief": "Switch and shade"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-057/03-condition.jpg",
+          "brief": "Base and power cable"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-058",
+      "sellerId": "SEL-012",
+      "title": "Blue ceramic serving set",
+      "category": "Home & Living",
+      "kind": "general",
+      "priceEtb": 1750,
+      "condition": "Good",
+      "size": "Set of 4",
+      "status": "Active",
+      "sponsored": true,
+      "description": "Four serving pieces with no visible chips.",
+      "city": "Addis Ababa",
+      "area": "Piassa",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-058/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-058/02-detail.jpg",
+          "brief": "Glaze and rim detail"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-058/03-condition.jpg",
+          "brief": "All pieces and underside"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-059",
+      "sellerId": "SEL-012",
+      "title": "Laptop sleeve 14 inch",
+      "category": "Electronics",
+      "kind": "general",
+      "priceEtb": 650,
+      "condition": "Like new",
+      "size": "14 in",
+      "status": "Active",
+      "sponsored": false,
+      "description": "Padded sleeve for a 14-inch laptop, no device included.",
+      "city": "Addis Ababa",
+      "area": "Piassa",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-059/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-059/02-detail.jpg",
+          "brief": "Interior padding"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-059/03-condition.jpg",
+          "brief": "Zipper and back"
+        }
+      ]
+    },
+    {
+      "listingId": "RSH-060",
+      "sellerId": "SEL-012",
+      "title": "Wood-look bedside organizer",
+      "category": "Home & Living",
+      "kind": "general",
+      "priceEtb": 900,
+      "condition": "Good",
+      "size": "Small",
+      "status": "Reserved",
+      "sponsored": false,
+      "description": "Small organizer with light cosmetic wear.",
+      "city": "Addis Ababa",
+      "area": "Piassa",
+      "imageRequirements": [
+        {
+          "role": "cover",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-060/01-cover.jpg",
+          "brief": "Clean full-item front view, portrait 3:4"
+        },
+        {
+          "role": "detail",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-060/02-detail.jpg",
+          "brief": "Compartments close-up"
+        },
+        {
+          "role": "condition",
+          "path": "assets/mock/sellers/SEL-012/products/RSH-060/03-condition.jpg",
+          "brief": "Base and worn corner"
+        }
+      ]
+    }
+  ]
+}

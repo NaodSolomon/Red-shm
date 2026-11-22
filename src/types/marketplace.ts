@@ -11,6 +11,10 @@ export interface User {
 
 export interface Seller extends User {
   neighborhood: string;
+  city?: string;
+  handle?: string;
+  bio?: string;
+  avatar?: ImageSourcePropType;
 }
 
 export interface Product {
@@ -19,12 +23,13 @@ export interface Product {
   description: string;
   price: number;
   category: ProductCategory;
+  subcategory?: string;
   condition: ProductCondition;
   size?: string;
   images: ImageSourcePropType[];
   seller: Seller;
   location: string;
-  createdAt: string;
+  createdAt?: string;
   status: ListingStatus;
   sponsored: boolean;
 }

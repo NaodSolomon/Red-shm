@@ -31,7 +31,15 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
+.env.*
+!.env.example
 .env*.local
+
+# local tooling and source archives
+/.claude/
+/.impeccable/
+/imports/*.zip
 
 # typescript
 *.tsbuildinfo

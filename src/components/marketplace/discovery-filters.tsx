@@ -11,16 +11,18 @@ const categories = [...new Set(products.map((product) => product.category))];
 const conditions = [...new Set(products.map((product) => product.condition))];
 const locations = [...new Set(products.map((product) => product.location))].sort();
 const sizes = [...new Set(products.flatMap((product) => product.size ? [product.size] : []))].sort();
+const hasListingDates = products.some((product) => Number.isFinite(Date.parse(product.createdAt ?? '')));
 
 export function readCategory(value: string | undefined): Filters['category'] {
   return value && categories.includes(value as ProductCategory) ? value as ProductCategory : '';
 }
 
-function Options<T extends string>({ label, values, selected, onSelect }: {
+function Options<T extends string>({ label, values, selected, onSelect, formatLabel }: {
   label: string;
   values: readonly T[];
   selected: T;
   onSelect: (value: T) => void;
+  formatLabel?: (value: T) => string;
 }) {
   return (
     <View style={styles.field}>
@@ -29,9 +31,9 @@ function Options<T extends string>({ label, values, selected, onSelect }: {
         {values.map((value) => (
           <Pressable key={value} accessibilityRole="button"
             accessibilityState={{ selected: value === selected }} onPress={() => onSelect(value)}
-            accessibilityLabel={value || `Any ${label.toLowerCase()}`}
+            accessibilityLabel={formatLabel?.(value) ?? (value || `Any ${label.toLowerCase()}`)}
             style={[styles.option, selected === value && styles.selected]}>
-            <Text style={styles.optionText}>{value || 'Any'}</Text>
+            <Text style={styles.optionText}>{formatLabel?.(value) ?? (value || 'Any')}</Text>
           </Pressable>
         ))}
       </View>
@@ -71,6 +73,7 @@ export function DiscoveryFilters({ initial, onApply }: {
       <Options label="Size" values={['', ...sizes]} selected={draft.size}
         onSelect={(value) => update('size', value)} />
       <Options label="Sort by" values={sortOptions} selected={draft.sort}
+        formatLabel={(value) => !hasListingDates && value === 'Newest first' ? 'Catalogue order' : value}
         onSelect={(value) => update('sort', value)} />
       <View style={styles.actions}>
         <Pressable accessibilityRole="button" style={styles.reset} onPress={() => onApply(defaultFilters)}>

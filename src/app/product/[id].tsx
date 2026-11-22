@@ -25,7 +25,7 @@ function Listing({ product }: { product: Product }) {
   const facts = [
     { label: 'Condition', value: product.condition },
     ...(product.size ? [{ label: 'Size', value: product.size }] : []),
-    { label: 'Category', value: product.category },
+    { label: 'Category', value: product.subcategory ?? product.category },
     { label: 'Location', value: product.location },
   ];
 
