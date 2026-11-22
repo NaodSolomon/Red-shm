@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 
 import { FavoritesProvider } from '@/components/marketplace/favorites';
 import { color } from '@/constants/marketplace';
+import { PromotionProvider } from '@/hooks/use-promotions';
 
 export const unstable_settings = { initialRouteName: '(tabs)' };
 
@@ -18,15 +19,19 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={theme}>
       <FavoritesProvider>
-        <StatusBar style="dark" />
-        <Stack screenOptions={{ headerTintColor: color.red, headerBackButtonDisplayMode: 'minimal' }}>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="product/[id]" options={{ title: 'Listing' }} />
-          <Stack.Screen name="seller/[id]" options={{ title: 'Seller profile' }} />
-          <Stack.Screen name="my-listings" options={{ title: 'My Listings' }} />
-          <Stack.Screen name="edit-listing/[id]" options={{ title: 'Edit listing' }} />
-          <Stack.Screen name="conversation/[id]" options={{ title: 'Conversation' }} />
-        </Stack>
+        <PromotionProvider>
+          <StatusBar style="dark" />
+          <Stack screenOptions={{ headerTintColor: color.red, headerBackButtonDisplayMode: 'minimal' }}>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="product/[id]" options={{ title: 'Listing' }} />
+            <Stack.Screen name="seller/[id]" options={{ title: 'Seller profile' }} />
+            <Stack.Screen name="my-listings" options={{ title: 'My Listings' }} />
+            <Stack.Screen name="edit-listing/[id]" options={{ title: 'Edit listing' }} />
+            <Stack.Screen name="conversation/[id]" options={{ title: 'Conversation' }} />
+            <Stack.Screen name="promotions" options={{ title: 'Promotions' }} />
+            <Stack.Screen name="promote/[id]" options={{ title: 'Promote listing' }} />
+          </Stack>
+        </PromotionProvider>
       </FavoritesProvider>
     </ThemeProvider>
   );

@@ -8,7 +8,9 @@ import { PrimaryButton, ScreenContainer, SectionHeader } from '@/components/mark
 import { ProductCard } from '@/components/marketplace/product-card';
 import { color } from '@/constants/marketplace';
 import { useListings } from '@/hooks/use-listings';
+import { usePromotions } from '@/hooks/use-promotions';
 import { statuses } from '@/lib/listings';
+import { promotionError } from '@/lib/promotions';
 import type { ListingStatus, Product } from '@/types/marketplace';
 
 type Change = { product: Product; status: ListingStatus | 'Delete' };
@@ -16,6 +18,7 @@ type Change = { product: Product; status: ListingStatus | 'Delete' };
 export default function MyListingsScreen() {
   const { notice } = useLocalSearchParams<{ notice?: string }>();
   const listings = useListings();
+  const promotions = usePromotions();
   const { forget } = useFavorites();
   const [filter, setFilter] = useState<ListingStatus | 'All'>('All');
   const [managing, setManaging] = useState<string>();
@@ -59,6 +62,9 @@ export default function MyListingsScreen() {
               <FormAction label="Edit" disabled={busy} onPress={() => router.push({ pathname: '/edit-listing/[id]', params: { id: item.id } })} />
               <FormAction label="Change status" disabled={busy} onPress={() => setManaging(managing === item.id ? undefined : item.id)} />
               <FormAction label="Delete" disabled={busy} onPress={() => { setError(''); setConfirmation({ product: item, status: 'Delete' }); }} />
+              {promotions.ready && !promotionError(item, promotions.promotions, promotions.now)
+                ? <FormAction label="Promote listing" disabled={busy}
+                  onPress={() => router.push({ pathname: '/promote/[id]', params: { id: item.id } })} /> : null}
             </View>
             {managing === item.id && <Choices label="Listing status" options={statuses} value={item.status} onChange={(status) => {
               if (status === item.status || locked.current) return;
@@ -72,6 +78,7 @@ export default function MyListingsScreen() {
             <SectionHeader title="Your local listings" subtitle="Manage items published from your demo account." />
             {notice === 'saved' && <Text accessibilityLiveRegion="polite" style={styles.notice}>Listing updated.</Text>}
             <PrimaryButton label="Create listing" onPress={() => router.navigate('/sell')} />
+            <FormAction label="Manage promotions" onPress={() => router.push('/promotions')} />
             <Choices options={['All', ...statuses]} value={filter} onChange={setFilter} />
             {!!error && !confirmation && <Text accessibilityRole="alert" style={styles.error}>{error}</Text>}
           </View>

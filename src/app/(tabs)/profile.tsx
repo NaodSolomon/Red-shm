@@ -26,6 +26,7 @@ export default function ProfileScreen() {
         </View> : <Text style={styles.body}>{error ?? 'Loading saved listings…'}</Text>}
         {error && <FormAction label="Retry loading" onPress={load} />}
         <PrimaryButton label="My Listings" onPress={() => router.push('/my-listings')} />
+        <FormAction label="Manage promotions" onPress={() => router.push('/promotions')} />
         <FormAction label="Create listing" onPress={() => router.navigate('/sell')} />
       </ScrollView>
     </ScreenContainer>
