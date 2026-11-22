@@ -1,12 +1,12 @@
 import type { PropsWithChildren } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, type Edge } from 'react-native-safe-area-context';
 
 import { color, serif } from '@/constants/marketplace';
 import { Icon, type IconName } from './icon';
 
-export function ScreenContainer({ children }: PropsWithChildren) {
-  return <SafeAreaView edges={['top', 'left', 'right']} style={styles.screen}>{children}</SafeAreaView>;
+export function ScreenContainer({ children, edges = ['top', 'left', 'right'] }: PropsWithChildren<{ edges?: Edge[] }>) {
+  return <SafeAreaView edges={edges} style={styles.screen}>{children}</SafeAreaView>;
 }
 
 export function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
@@ -30,10 +30,11 @@ export function CategoryChip({ label, icon, onPress }: ActionProps & { icon: Ico
   );
 }
 
-export function PrimaryButton({ label, onPress }: ActionProps) {
+export function PrimaryButton({ label, onPress, disabled }: ActionProps & { disabled?: boolean }) {
   return (
     <Pressable accessibilityRole="button" onPress={onPress}
-      style={({ pressed }) => [styles.button, pressed && styles.pressed]}>
+      disabled={disabled} accessibilityState={{ disabled }}
+      style={({ pressed }) => [styles.button, (pressed || disabled) && styles.pressed]}>
       <Text style={styles.buttonLabel}>{label}</Text>
     </Pressable>
   );

@@ -5,6 +5,12 @@ import type { ColorValue } from 'react-native';
 import { color } from '@/constants/marketplace';
 
 const symbols = {
+  heart: { ios: 'heart', android: 'favorite_border', web: 'favorite_border' },
+  heartFilled: { ios: 'heart.fill', android: 'favorite', web: 'favorite' },
+  close: { ios: 'xmark', android: 'close', web: 'close' },
+  filters: { ios: 'slider.horizontal.3', android: 'tune', web: 'tune' },
+  previous: { ios: 'chevron.left', android: 'chevron_left', web: 'chevron_left' },
+  next: { ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' },
   home: { ios: 'house', android: 'home', web: 'home' },
   search: { ios: 'magnifyingglass', android: 'search', web: 'search' },
   sell: { ios: 'plus.app', android: 'add_box', web: 'add_box' },

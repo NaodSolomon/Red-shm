@@ -1,57 +1,45 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Link } from 'expo-router';
+import { memo } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { color } from '@/constants/marketplace';
-import type { Product, ProductCategory } from '@/types/marketplace';
-import { Icon, type IconName } from './icon';
+import type { Product } from '@/types/marketplace';
+import { FavoriteButton } from './favorites';
 import { PriceText } from './primitives';
+import { ProductMedia } from './product-media';
 
-export const categoryIcons: Record<ProductCategory, IconName> = {
-  'Traditional wear': 'traditional',
-  Accessories: 'accessories',
-  'Everyday fashion': 'everyday',
-  'Home & tech': 'goods',
-};
-
-export function ProductCard({ product, alternate }: { product: Product; alternate?: boolean }) {
-  const [photo] = product.images;
-
+export const ProductCard = memo(function ProductCard({ product }: { product: Product }) {
   return (
     <View style={styles.card}>
-      <View style={[styles.media, alternate && styles.alternate]}>
-        {photo ? (
-          <Image source={photo} style={styles.image} resizeMode="cover" />
-        ) : (
-          <View style={styles.placeholder}>
-            <View style={styles.frame}>
-              <View style={styles.icon}>
-                <Icon name={categoryIcons[product.category]} size={32} tint={color.red} />
-              </View>
+      <Link href={{ pathname: '/product/[id]', params: { id: product.id } }} asChild>
+        <Pressable style={({ pressed }) => [styles.link, pressed && styles.pressed]}>
+          <ProductMedia product={product} />
+          <View style={styles.details}>
+            <View style={styles.badges}>
+              {product.sponsored && <Text style={styles.sponsored}>Sponsored</Text>}
+              {product.status !== 'Active' && <Text style={styles.status}>{product.status}</Text>}
             </View>
-            <Text style={styles.placeholderText}>Photo unavailable</Text>
+            <Text style={styles.title}>{product.title}</Text>
+            <PriceText amount={product.price} />
+            <Text style={styles.meta}>{[product.size, product.condition].filter(Boolean).join(' · ')}</Text>
+            <Text style={styles.meta}>{product.location}</Text>
           </View>
-        )}
-        {product.sponsored && <Text style={styles.sponsored}>Sponsored</Text>}
-      </View>
-      <View style={styles.details}>
-        <Text style={styles.title}>{product.title}</Text>
-        <Text style={styles.condition}>{[product.size, product.condition].filter(Boolean).join(' · ')}</Text>
-        <PriceText amount={product.price} />
-      </View>
+        </Pressable>
+      </Link>
+      <View style={styles.favorite} pointerEvents="box-none"><FavoriteButton product={product} /></View>
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   card: { flex: 1, minWidth: 0, borderWidth: 1, borderColor: color.line, borderRadius: 16, overflow: 'hidden', backgroundColor: color.white },
-  media: { minHeight: 148, backgroundColor: color.rose, justifyContent: 'center', overflow: 'hidden' },
-  alternate: { backgroundColor: color.sand },
-  image: { width: '100%', aspectRatio: 1.15 },
-  placeholder: { alignItems: 'center', justifyContent: 'center', gap: 12, paddingHorizontal: 8, paddingTop: 38, paddingBottom: 14 },
-  frame: { width: 55, height: 55, transform: [{ rotate: '45deg' }], borderWidth: 1, borderColor: '#AD7480', alignItems: 'center', justifyContent: 'center' },
-  icon: { transform: [{ rotate: '-45deg' }] },
-  placeholderText: { color: color.muted, fontSize: 12, textAlign: 'center' },
-  sponsored: { position: 'absolute', top: 8, left: 8, maxWidth: '90%', backgroundColor: color.white, color: color.ink, paddingHorizontal: 8, paddingVertical: 4, borderRadius: 8, fontSize: 11, fontWeight: '600' },
+  link: { flex: 1 },
+  pressed: { opacity: 0.78 },
+  favorite: { position: 'absolute', top: 7, right: 7 },
   details: { padding: 11, gap: 5 },
   title: { color: color.ink, fontSize: 14, fontWeight: '700', lineHeight: 19 },
-  condition: { color: color.muted, fontSize: 13, lineHeight: 17 },
+  meta: { color: color.muted, fontSize: 12, lineHeight: 16 },
+  badges: { flexDirection: 'row', flexWrap: 'wrap', gap: 5 },
+  sponsored: { backgroundColor: color.sand, color: color.ink, paddingHorizontal: 7, paddingVertical: 3, borderRadius: 5, fontSize: 11, fontWeight: '600' },
+  status: { backgroundColor: color.rose, color: color.red, paddingHorizontal: 7, paddingVertical: 3, borderRadius: 5, fontSize: 11, fontWeight: '700' },
 });

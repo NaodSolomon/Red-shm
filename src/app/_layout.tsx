@@ -1,16 +1,10 @@
-import { DefaultTheme, Tabs, ThemeProvider } from 'expo-router';
+import { DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 
-import { Icon, type IconName } from '@/components/marketplace/icon';
+import { FavoritesProvider } from '@/components/marketplace/favorites';
 import { color } from '@/constants/marketplace';
 
-const tabs = [
-  { route: 'index', title: 'Home', icon: 'home' },
-  { route: 'search', title: 'Search', icon: 'search' },
-  { route: 'sell', title: 'Sell', icon: 'sell' },
-  { route: 'inbox', title: 'Inbox', icon: 'inbox' },
-  { route: 'profile', title: 'Profile', icon: 'profile' },
-] satisfies { route: string; title: string; icon: IconName }[];
+export const unstable_settings = { initialRouteName: '(tabs)' };
 
 const theme = {
   ...DefaultTheme,
@@ -20,24 +14,17 @@ const theme = {
   },
 };
 
-export default function TabLayout() {
+export default function RootLayout() {
   return (
     <ThemeProvider value={theme}>
-      <StatusBar style="dark" />
-      <Tabs screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: color.red,
-        tabBarInactiveTintColor: color.muted,
-        tabBarLabelStyle: { fontSize: 12, fontWeight: '600' },
-        tabBarStyle: { backgroundColor: color.white, borderTopColor: color.line, elevation: 0 },
-      }}>
-        {tabs.map(({ route, title, icon }) => (
-          <Tabs.Screen key={route} name={route} options={{
-            title,
-            tabBarIcon: ({ color: tint }) => <Icon name={icon} tint={tint} />,
-          }} />
-        ))}
-      </Tabs>
+      <FavoritesProvider>
+        <StatusBar style="dark" />
+        <Stack screenOptions={{ headerTintColor: color.red, headerBackButtonDisplayMode: 'minimal' }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="product/[id]" options={{ title: 'Listing' }} />
+          <Stack.Screen name="seller/[id]" options={{ title: 'Seller profile' }} />
+        </Stack>
+      </FavoritesProvider>
     </ThemeProvider>
   );
 }
