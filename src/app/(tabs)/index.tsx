@@ -7,22 +7,22 @@ import { CategoryChip, ScreenContainer, SectionHeader } from '@/components/marke
 import { categoryIcons } from '@/components/marketplace/product-media';
 import { ProductRow, useGridColumns } from '@/components/marketplace/product-row';
 import { color, serif } from '@/constants/marketplace';
-import { products } from '@/data/products';
+import { useListings } from '@/hooks/use-listings';
 import { gridRows, newestFirst } from '@/lib/discovery';
-import type { ProductCategory } from '@/types/marketplace';
+import { categories } from '@/lib/listings';
+import type { Product, ProductCategory } from '@/types/marketplace';
 
-const categories = [...new Set(products.map((product) => product.category))].sort(
-  (left, right) => Object.keys(categoryIcons).indexOf(left) - Object.keys(categoryIcons).indexOf(right),
-);
-const active = products.filter((product) => product.status === 'Active');
-const organic = active.filter((product) => !product.sponsored);
-const sections = [
-  { title: 'Featured traditional wear', subtitle: 'Habesha kemis, netela and more',
-    items: organic.filter((product) => product.category === 'Traditional wear').slice(0, 4) },
-  { title: 'Recommended for you', items: organic.filter((product) => product.category !== 'Traditional wear').slice(0, 4) },
-  { title: 'Recently listed', items: organic.filter((product) => Number.isFinite(Date.parse(product.createdAt ?? ''))).sort(newestFirst).slice(0, 6) },
-  { title: 'Sponsored listing', items: active.filter((product) => product.sponsored) },
-].filter((section) => section.items.length > 0);
+function discoverySections(products: Product[]) {
+  const active = products.filter((product) => product.status === 'Active');
+  const organic = active.filter((product) => !product.sponsored);
+  return [
+    { title: 'Featured traditional wear', subtitle: 'Habesha kemis, netela and more',
+      items: organic.filter((product) => product.category === 'Traditional wear').slice(0, 4) },
+    { title: 'Recommended for you', items: organic.filter((product) => product.category !== 'Traditional wear').slice(0, 4) },
+    { title: 'Recently listed', items: organic.filter((product) => Number.isFinite(Date.parse(product.createdAt ?? ''))).sort(newestFirst).slice(0, 6) },
+    { title: 'Sponsored listing', items: active.filter((product) => product.sponsored) },
+  ].filter((section) => section.items.length > 0);
+}
 
 function openSearch(category: ProductCategory | '' = '') {
   router.navigate({ pathname: '/search', params: { category, entry: String(Date.now()) } });
@@ -63,9 +63,10 @@ function HomeHeader() {
 
 export default function HomeScreen() {
   const columns = useGridColumns();
-  const feed = useMemo(() => sections.map((section) => ({
+  const { products } = useListings();
+  const feed = useMemo(() => discoverySections(products).map((section) => ({
     ...section, key: section.title, data: gridRows(section.items, columns),
-  })), [columns]);
+  })), [columns, products]);
 
   return (
     <ScreenContainer>

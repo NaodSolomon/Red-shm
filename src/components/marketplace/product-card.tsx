@@ -17,6 +17,7 @@ export const ProductCard = memo(function ProductCard({ product }: { product: Pro
           <View style={styles.details}>
             <View style={styles.badges}>
               {product.sponsored && <Text style={styles.sponsored}>Sponsored</Text>}
+              {product.local && <Text style={styles.sponsored}>Local demo</Text>}
               {product.status !== 'Active' && <Text style={styles.status}>{product.status}</Text>}
             </View>
             <Text style={styles.title}>{product.title}</Text>

@@ -7,7 +7,7 @@ import { Icon } from '@/components/marketplace/icon';
 import { ScreenContainer, SectionHeader } from '@/components/marketplace/primitives';
 import { ProductRow, useGridColumns } from '@/components/marketplace/product-row';
 import { color } from '@/constants/marketplace';
-import { products } from '@/data/products';
+import { useListings } from '@/hooks/use-listings';
 import { defaultFilters, discover, gridRows, type Filters } from '@/lib/discovery';
 
 export default function SearchScreen() {
@@ -21,7 +21,8 @@ function SearchResults({ categoryParam }: { categoryParam?: string }) {
   const [filters, setFilters] = useState(defaultFilters);
   const [showFilters, setShowFilters] = useState(false);
   const columns = useGridColumns();
-  const results = useMemo(() => discover(products, query, { ...filters, category }), [query, filters, category]);
+  const { products } = useListings();
+  const results = useMemo(() => discover(products, query, { ...filters, category }), [query, filters, category, products]);
   const rows = useMemo(() => gridRows(results, columns), [results, columns]);
   const filterCount = [category, filters.minimum.trim() || filters.maximum.trim(), filters.condition,
     filters.location, filters.size, filters.sort !== defaultFilters.sort].filter(Boolean).length;
@@ -65,7 +66,7 @@ function SearchResults({ categoryParam }: { categoryParam?: string }) {
                 </Pressable>
               )}
             </View>
-            {showFilters && <DiscoveryFilters key={category} initial={{ ...filters, category }} onApply={applyFilters} />}
+            {showFilters && <DiscoveryFilters key={category} products={products} initial={{ ...filters, category }} onApply={applyFilters} />}
             <Text accessibilityLiveRegion="polite" style={styles.summary}>
               {results.length} {results.length === 1 ? 'listing' : 'listings'}{category ? ` · ${category}` : ''}
             </Text>

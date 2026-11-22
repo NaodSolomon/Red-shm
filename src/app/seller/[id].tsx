@@ -6,13 +6,16 @@ import { ScreenContainer, SectionHeader } from '@/components/marketplace/primiti
 import { ProductRow, useGridColumns } from '@/components/marketplace/product-row';
 import { SellerIdentity } from '@/components/marketplace/seller-preview';
 import { color } from '@/constants/marketplace';
-import { products, sellers } from '@/data/products';
+import { sellers } from '@/data/products';
+import { useListings } from '@/hooks/use-listings';
 import { gridRows } from '@/lib/discovery';
+import { demoSeller } from '@/lib/listings';
 
 export default function SellerScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const columns = useGridColumns();
-  const seller = sellers.find((item) => item.id === id);
+  const { products, ready } = useListings();
+  const seller = id === demoSeller.id ? demoSeller : sellers.find((item) => item.id === id);
   if (!seller) return (
     <EmptyState screen="Seller profile" title="Seller unavailable" icon="profile"
       description="This seller profile could not be found." />
@@ -31,11 +34,12 @@ export default function SellerScreen() {
             <View style={styles.card}>
               <SellerIdentity key={seller.id} seller={seller} />
               {seller.bio && <Text style={styles.bio}>{seller.bio}</Text>}
+              {seller.id === demoSeller.id && <Text style={styles.bio}>Local demo account</Text>}
             </View>
             <SectionHeader title="Listings" />
           </View>
         }
-        ListEmptyComponent={<Text style={styles.bio}>No listings yet.</Text>}
+        ListEmptyComponent={<Text style={styles.bio}>{ready ? 'No listings yet.' : 'Loading listings…'}</Text>}
       />
     </ScreenContainer>
   );

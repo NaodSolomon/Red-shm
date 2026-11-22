@@ -14,9 +14,15 @@ export const categoryIcons: Record<ProductCategory, IconName> = {
 
 export function ProductMedia({ product, index = 0 }: { product: Product; index?: number }) {
   const source = product.images[index];
+  const uri = source && typeof source === 'object' && 'uri' in source ? source.uri : undefined;
+  return <Media key={uri ?? index} product={product} index={index} missing={uri === ''} />;
+}
+
+function Media({ product, index, missing }: { product: Product; index: number; missing: boolean }) {
+  const source = product.images[index];
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
-  const showPhoto = source && !failed;
+  const showPhoto = source && !failed && !missing;
   const traditional = product.category === 'Traditional wear';
 
   return (

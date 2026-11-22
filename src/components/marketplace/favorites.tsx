@@ -8,6 +8,7 @@ import { Icon } from './icon';
 const FavoritesContext = createContext<{
   ids: ReadonlySet<string>;
   toggle: (id: string) => void;
+  forget: (id: string) => void;
 } | null>(null);
 
 export function FavoritesProvider({ children }: PropsWithChildren) {
@@ -22,13 +23,26 @@ export function FavoritesProvider({ children }: PropsWithChildren) {
     });
   }
 
-  return <FavoritesContext.Provider value={{ ids, toggle }}>{children}</FavoritesContext.Provider>;
+  function forget(id: string) {
+    setIds((previous) => {
+      if (!previous.has(id)) return previous;
+      const next = new Set(previous);
+      next.delete(id);
+      return next;
+    });
+  }
+
+  return <FavoritesContext.Provider value={{ ids, toggle, forget }}>{children}</FavoritesContext.Provider>;
+}
+
+export function useFavorites() {
+  const favorites = useContext(FavoritesContext);
+  if (!favorites) throw new Error('FavoritesProvider is required');
+  return favorites;
 }
 
 export function FavoriteButton({ product }: { product: Product }) {
-  const favorites = useContext(FavoritesContext);
-  if (!favorites) throw new Error('FavoriteButton requires FavoritesProvider');
-
+  const favorites = useFavorites();
   const selected = favorites.ids.has(product.id);
   return (
     <Pressable accessibilityRole="togglebutton" accessibilityState={{ checked: selected }}

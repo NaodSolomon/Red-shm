@@ -32,4 +32,6 @@ export interface Product {
   createdAt?: string;
   status: ListingStatus;
   sponsored: boolean;
+  local?: boolean;
+  fulfillment?: string;
 }

@@ -7,31 +7,39 @@ import { PriceText, PrimaryButton, ScreenContainer, SectionHeader } from '@/comp
 import { ProductGallery } from '@/components/marketplace/product-gallery';
 import { SellerPreview } from '@/components/marketplace/seller-preview';
 import { color } from '@/constants/marketplace';
-import { products } from '@/data/products';
+import { useListings } from '@/hooks/use-listings';
 import type { Product } from '@/types/marketplace';
 
 export default function ProductScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, published } = useLocalSearchParams<{ id: string; published?: string }>();
+  const { products, ready, error } = useListings();
   const product = products.find((item) => item.id === id);
+  if (!product && id?.startsWith('LOCAL-') && !ready) return (
+    <ScreenContainer edges={['left', 'right', 'bottom']}>
+      <View style={styles.content}><SectionHeader title={error ?? 'Loading listing…'} /></View>
+    </ScreenContainer>
+  );
   if (!product) return (
     <EmptyState screen="Listing" title="Listing unavailable" icon="traditional"
       description="This listing could not be found." />
   );
 
-  return <Listing key={product.id} product={product} />;
+  return <Listing key={product.id} product={product} published={published === 'yes'} />;
 }
 
-function Listing({ product }: { product: Product }) {
+function Listing({ product, published }: { product: Product; published: boolean }) {
   const facts = [
     { label: 'Condition', value: product.condition },
     ...(product.size ? [{ label: 'Size', value: product.size }] : []),
     { label: 'Category', value: product.subcategory ?? product.category },
     { label: 'Location', value: product.location },
+    ...(product.fulfillment ? [{ label: 'Fulfillment', value: product.fulfillment }] : []),
   ];
 
   return (
     <ScreenContainer edges={['left', 'right', 'bottom']}>
       <ScrollView contentContainerStyle={styles.content}>
+        {published && product.local && <Text accessibilityLiveRegion="polite" style={styles.badge}>Listing published on this device.</Text>}
         <ProductGallery product={product} />
         <View style={styles.overview}>
           <View style={styles.info}>
@@ -43,6 +51,7 @@ function Listing({ product }: { product: Product }) {
         <View style={styles.badges}>
           <Text style={[styles.badge, product.status !== 'Active' && styles.unavailable]}>{product.status}</Text>
           {product.sponsored && <Text style={styles.badge}>Sponsored</Text>}
+          {product.local && <Text style={styles.badge}>Local demo</Text>}
         </View>
         <View style={styles.section}>
           <SectionHeader title="About this listing" />
@@ -60,7 +69,9 @@ function Listing({ product }: { product: Product }) {
           <SectionHeader title="Meet the seller" />
           <SellerPreview seller={product.seller} />
         </View>
-        {product.status === 'Active' && (
+        {product.local ? (
+          <PrimaryButton label="My Listings" onPress={() => router.push('/my-listings')} />
+        ) : product.status === 'Active' && (
           <PrimaryButton label="Chat with seller" onPress={() => router.dismissTo('/inbox')} />
         )}
       </ScrollView>

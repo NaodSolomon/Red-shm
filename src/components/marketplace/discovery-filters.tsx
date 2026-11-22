@@ -2,16 +2,11 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { color } from '@/constants/marketplace';
-import { products } from '@/data/products';
 import { defaultFilters, priceError, sortOptions, type Filters } from '@/lib/discovery';
-import type { ProductCategory } from '@/types/marketplace';
+import { categories } from '@/lib/listings';
+import type { Product, ProductCategory } from '@/types/marketplace';
 import { PrimaryButton } from './primitives';
 
-const categories = [...new Set(products.map((product) => product.category))];
-const conditions = [...new Set(products.map((product) => product.condition))];
-const locations = [...new Set(products.map((product) => product.location))].sort();
-const sizes = [...new Set(products.flatMap((product) => product.size ? [product.size] : []))].sort();
-const hasListingDates = products.some((product) => Number.isFinite(Date.parse(product.createdAt ?? '')));
 
 export function readCategory(value: string | undefined): Filters['category'] {
   return value && categories.includes(value as ProductCategory) ? value as ProductCategory : '';
@@ -41,10 +36,15 @@ function Options<T extends string>({ label, values, selected, onSelect, formatLa
   );
 }
 
-export function DiscoveryFilters({ initial, onApply }: {
+export function DiscoveryFilters({ initial, onApply, products }: {
   initial: Filters;
   onApply: (filters: Filters) => void;
+  products: Product[];
 }) {
+  const conditions = [...new Set(products.map((product) => product.condition))];
+  const locations = [...new Set(products.map((product) => product.location))].sort();
+  const sizes = [...new Set(products.flatMap((product) => product.size ? [product.size] : []))].sort();
+  const hasListingDates = products.some((product) => Number.isFinite(Date.parse(product.createdAt ?? '')));
   const [draft, setDraft] = useState(initial);
   const error = priceError(draft.minimum, draft.maximum);
 
