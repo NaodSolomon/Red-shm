@@ -1,12 +1,15 @@
 import { router, useLocalSearchParams } from 'expo-router';
+import { useRef, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { EmptyState } from '@/components/marketplace/empty-state';
 import { FavoriteButton } from '@/components/marketplace/favorites';
+import { FormAction } from '@/components/marketplace/listing-form';
 import { PriceText, PrimaryButton, ScreenContainer, SectionHeader } from '@/components/marketplace/primitives';
 import { ProductGallery } from '@/components/marketplace/product-gallery';
 import { SellerPreview } from '@/components/marketplace/seller-preview';
 import { color } from '@/constants/marketplace';
+import { useConversations } from '@/hooks/use-conversations';
 import { useListings } from '@/hooks/use-listings';
 import type { Product } from '@/types/marketplace';
 
@@ -28,6 +31,26 @@ export default function ProductScreen() {
 }
 
 function Listing({ product, published }: { product: Product; published: boolean }) {
+  const { open } = useConversations();
+  const [opening, setOpening] = useState(false);
+  const [chatError, setChatError] = useState('');
+  const locked = useRef(false);
+
+  async function openChat() {
+    if (locked.current) return;
+    locked.current = true;
+    setOpening(true);
+    setChatError('');
+    try {
+      const id = await open(product, product.local ? 'seller' : 'buyer');
+      router.push({ pathname: '/conversation/[id]', params: { id } });
+    } catch (error) {
+      setChatError(error instanceof Error ? error.message : 'Could not open the conversation.');
+    } finally {
+      locked.current = false;
+      setOpening(false);
+    }
+  }
   const facts = [
     { label: 'Condition', value: product.condition },
     ...(product.size ? [{ label: 'Size', value: product.size }] : []),
@@ -69,10 +92,14 @@ function Listing({ product, published }: { product: Product; published: boolean 
           <SectionHeader title="Meet the seller" />
           <SellerPreview seller={product.seller} />
         </View>
+        {!!chatError && <Text accessibilityRole="alert" style={styles.error}>{chatError}</Text>}
         {product.local ? (
-          <PrimaryButton label="My Listings" onPress={() => router.push('/my-listings')} />
+          <>
+            <PrimaryButton label="My Listings" onPress={() => router.push('/my-listings')} />
+            {product.status === 'Active' ? <FormAction label="Open demo selling chat" disabled={opening} onPress={openChat} /> : null}
+          </>
         ) : product.status === 'Active' && (
-          <PrimaryButton label="Chat with seller" onPress={() => router.dismissTo('/inbox')} />
+          <PrimaryButton label="Chat with seller" disabled={opening} onPress={openChat} />
         )}
       </ScrollView>
     </ScreenContainer>
@@ -86,6 +113,7 @@ const styles = StyleSheet.create({
   badges: { flexDirection: 'row', flexWrap: 'wrap', gap: 7 },
   badge: { borderRadius: 7, paddingVertical: 4, paddingHorizontal: 9, backgroundColor: color.sand, color: color.ink, fontWeight: '700' },
   unavailable: { backgroundColor: color.rose, color: color.red },
+  error: { color: color.red },
   section: { gap: 10, paddingTop: 10, borderTopWidth: 1, borderTopColor: color.line },
   description: { color: color.ink, fontSize: 16, lineHeight: 23 },
   facts: { gap: 8, paddingVertical: 4 },

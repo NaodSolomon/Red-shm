@@ -2,6 +2,8 @@ import { Tabs } from 'expo-router';
 
 import { Icon, type IconName } from '@/components/marketplace/icon';
 import { color } from '@/constants/marketplace';
+import { useConversations } from '@/hooks/use-conversations';
+import { defaultRole } from '@/lib/conversations';
 
 const tabs = [
   { route: 'index', title: 'Home', icon: 'home' },
@@ -12,6 +14,8 @@ const tabs = [
 ] satisfies { route: string; title: string; icon: IconName }[];
 
 export default function TabLayout() {
+  const { conversations } = useConversations();
+  const unread = conversations.filter((conversation) => conversation.unread[defaultRole(conversation)]).length;
   return (
     <Tabs backBehavior="history" screenOptions={{
       headerShown: false,
@@ -23,6 +27,8 @@ export default function TabLayout() {
       {tabs.map(({ route, title, icon }) => (
         <Tabs.Screen key={route} name={route} options={{
           title,
+          tabBarBadge: route === 'inbox' && unread ? unread : undefined,
+          tabBarBadgeStyle: { backgroundColor: color.red, color: color.white },
           tabBarIcon: ({ color: tint }) => <Icon name={icon} tint={tint} />,
         }} />
       ))}

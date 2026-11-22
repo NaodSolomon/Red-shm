@@ -25,6 +25,7 @@ export default function RootLayout() {
           <Stack.Screen name="seller/[id]" options={{ title: 'Seller profile' }} />
           <Stack.Screen name="my-listings" options={{ title: 'My Listings' }} />
           <Stack.Screen name="edit-listing/[id]" options={{ title: 'Edit listing' }} />
+          <Stack.Screen name="conversation/[id]" options={{ title: 'Conversation' }} />
         </Stack>
       </FavoritesProvider>
     </ThemeProvider>
