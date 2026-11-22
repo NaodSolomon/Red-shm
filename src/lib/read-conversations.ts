@@ -19,8 +19,13 @@ function isMessage(value: unknown, id: string): value is Message {
   if (value.type === 'text') return typeof value.text === 'string'
     && (value.example === undefined || typeof value.example === 'boolean');
   if (value.type === 'image' || value.type === 'payment') return typeof value.attachment === 'string';
-  return value.type === 'system' && (value.event === 'arrange' ? isArrangement(value.arrangement)
-    : ['confirm', 'complete', 'cancel'].some((event) => event === value.event));
+  if (value.type !== 'system') return false;
+  if (value.event === 'arrange') return isArrangement(value.arrangement);
+  if (value.event === 'propose') return isArrangement(value.arrangement)
+    && (value.replaces === undefined || typeof value.replaces === 'string');
+  if (value.event === 'respond') return typeof value.proposalId === 'string'
+    && ['Accepted', 'Declined', 'Changes Requested'].some((decision) => decision === value.decision);
+  return ['confirm', 'complete', 'cancel', 'request-delivery'].some((event) => event === value.event);
 }
 
 export function readConversations(raw: string): Conversation[] {
@@ -46,7 +51,7 @@ export function readConversations(raw: string): Conversation[] {
       if (!isMessage(message, entry.id) || messages.has(message.id)
         || Date.parse(message.timestamp) < Date.parse(conversation.lastActivity)) continue;
       try {
-        conversation = appendMessage(conversation, message);
+        conversation = appendMessage(conversation, message, true);
         messages.add(message.id);
       } catch {
         // Skip invalid events while keeping the rest of the local conversation readable.

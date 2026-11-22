@@ -1,4 +1,5 @@
 import { demoSeller, photoNamePattern } from './listings';
+import { applyFulfillment, canComplete, type FulfillmentEvent, type Proposal } from './fulfillment';
 import type { Product } from '@/types/marketplace';
 
 export const demoBuyer = { id: 'local-demo-buyer', name: 'Red-shm Demo Buyer' };
@@ -21,7 +22,8 @@ type MessageContent =
   | { type: 'image'; attachment: string }
   | { type: 'payment'; attachment: string }
   | { type: 'system'; event: 'confirm' | 'complete' | 'cancel' }
-  | { type: 'system'; event: 'arrange'; arrangement: Arrangement };
+  | { type: 'system'; event: 'arrange'; arrangement: Arrangement }
+  | FulfillmentEvent;
 
 export type Message = MessageContent & {
   id: string; conversationId: string; senderId: string; timestamp: string; delivery: 'local';
@@ -38,11 +40,13 @@ export interface Conversation {
   status: Status;
   payment: 'No claim' | 'Payment Claimed' | 'Seller Confirmed Receipt';
   arrangement?: Arrangement;
+  legacyArrangement?: Arrangement;
+  fulfillment?: Proposal;
   messages: Message[];
   unread: Record<Role, boolean>;
 }
 
-export type DraftMessage = Exclude<MessageContent, { type: 'text' }> | { type: 'text'; text: string };
+export type DraftMessage = Exclude<MessageContent, { type: 'text' } | { event: 'arrange' }> | { type: 'text'; text: string };
 
 export function roleFor(conversation: Conversation, senderId: string): Role {
   if (senderId === conversation.buyerId) return 'buyer';
@@ -82,7 +86,7 @@ export function arrangementError(arrangement: Arrangement, methods: Method[]) {
   if (arrangement.instructions.length > 400) return 'Use up to 400 characters for instructions.';
 }
 
-export function appendMessage(conversation: Conversation, message: Message): Conversation {
+export function appendMessage(conversation: Conversation, message: Message, replay = false): Conversation {
   const role = roleFor(conversation, message.senderId);
   const next = { ...conversation };
   if (message.type === 'text' && (!message.text.trim() || message.text.length > 2000)) {
@@ -97,24 +101,29 @@ export function appendMessage(conversation: Conversation, message: Message): Con
       if (role !== 'buyer' || next.payment === 'Seller Confirmed Receipt') {
         throw new Error('Only the buyer can submit evidence before receipt is confirmed.');
       }
-      next.status = next.payment = 'Payment Claimed';
+      next.payment = 'Payment Claimed';
+      if (!next.arrangement) next.status = next.payment;
     } else if (message.event === 'confirm') {
       if (role !== 'seller' || next.payment !== 'Payment Claimed') {
         throw new Error('Only the seller can confirm an outstanding payment claim.');
       }
-      next.status = next.payment = 'Seller Confirmed Receipt';
+      next.payment = 'Seller Confirmed Receipt';
+      if (!next.arrangement) next.status = next.payment;
     } else if (message.event === 'arrange') {
+      if (!replay) throw new Error('Create a fulfillment proposal first.');
       const error = arrangementError(message.arrangement, next.methods);
       if (error) throw new Error(error);
-      next.arrangement = message.arrangement;
-      next.status = 'Fulfillment Arranged';
+      next.legacyArrangement = message.arrangement;
     } else if (message.event === 'complete') {
-      if (role !== 'seller' || !next.arrangement || next.payment === 'Payment Claimed') {
-        throw new Error('Only the seller can complete an arranged transaction without an outstanding claim.');
+      const historical = replay && next.legacyArrangement && !next.fulfillment && next.payment !== 'Payment Claimed';
+      if (role !== 'seller' || (!canComplete(next) && !historical)) {
+        throw new Error('Only the seller can complete an arranged transaction after approval and with no outstanding payment claim.');
       }
       next.status = 'Completed';
-    } else {
+    } else if (message.event === 'cancel') {
       next.status = 'Cancelled';
+    } else if (message.event === 'request-delivery' || message.event === 'propose' || message.event === 'respond') {
+      applyFulfillment(next, message, role);
     }
   }
   return {
@@ -132,7 +141,10 @@ export function describeMessage(message: Message) {
       case 'confirm': return 'Seller confirmed receipt';
       case 'complete': return 'Transaction marked complete';
       case 'cancel': return 'Transaction cancelled';
-      case 'arrange': return `${message.arrangement.method} arranged`;
+      case 'arrange': return 'Legacy arrangement · approval not recorded';
+      case 'request-delivery': return 'Seller-arranged delivery requested';
+      case 'propose': return message.arrangement.method === 'Buyer pickup' ? 'Pickup proposed' : 'Delivery proposed';
+      case 'respond': return `Fulfillment · ${message.decision}`;
     }
   }
   return '';

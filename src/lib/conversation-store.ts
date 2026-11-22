@@ -5,6 +5,7 @@ import { appendMessage, conversationId, createConversation, demoBuyer, roleFor, 
 import { photoExtension } from './listing-photo';
 import { demoSeller } from './listings';
 import { readConversations } from './read-conversations';
+import { normalizeTime } from './fulfillment-time';
 import type { Product } from '@/types/marketplace';
 
 export const conversationStorageKey = 'red-shm.conversations.v1';
@@ -116,7 +117,10 @@ export function createConversationStore(io: Storage, catalogue: Product[]) {
   function send(id: string, senderId: string, draft: Extract<DraftMessage, { type: 'text' | 'system' }>) {
     return serialize(async () => {
       const thread = lookup(id);
-      const content = draft.type === 'text' ? { ...draft, text: draft.text.trim() } : draft;
+      const content = draft.type === 'text' ? { ...draft, text: draft.text.trim() }
+        : draft.event === 'propose' ? {
+          ...draft, arrangement: { ...draft.arrangement, time: normalizeTime(draft.arrangement.time) ?? draft.arrangement.time },
+        } : draft;
       await replace(appendMessage(thread, build(thread, senderId, content)));
     });
   }

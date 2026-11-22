@@ -1,20 +1,23 @@
 import { Link, router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import { useCallback, useRef, useState } from 'react';
-import { FlatList, Image, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Image, Keyboard, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { TransactionDialog } from '@/components/marketplace/chat-transaction';
 import { ChatDialog, ChatThumbnail, StatusBadge, chatTime, participant } from '@/components/marketplace/conversation-ui';
+import { FulfillmentCard, FulfillmentDetails } from '@/components/marketplace/fulfillment-card';
 import { Choices, FormAction } from '@/components/marketplace/listing-form';
 import { PriceText, PrimaryButton, ScreenContainer, SectionHeader } from '@/components/marketplace/primitives';
 import { color } from '@/constants/marketplace';
 import { useConversations } from '@/hooks/use-conversations';
 import { useListings } from '@/hooks/use-listings';
 import { defaultRole, describeMessage, type Conversation, type DraftMessage, type Message, type Role } from '@/lib/conversations';
+import { photoExtension } from '@/lib/listing-photo';
 import type { Product } from '@/types/marketplace';
 
 type ChatState = ReturnType<typeof useConversations>;
-type Dialog = { kind: 'transaction' | 'payment' } | { kind: 'preview'; asset: ImagePicker.ImagePickerAsset; type: 'image' | 'payment' }
+type Dialog = { kind: 'transaction'; schedule?: boolean } | { kind: 'payment' }
+  | { kind: 'preview'; asset: ImagePicker.ImagePickerAsset; type: 'image' | 'payment' }
   | { kind: 'enlarged'; uri: string; title: string };
 const roles = ['Buyer', 'Seller'] as const;
 
@@ -78,12 +81,21 @@ function Thread({ chat, thread, product }: { chat: ChatState; thread: Conversati
 
   function pick(type: 'image' | 'payment') {
     void run(async () => {
+      if (Platform.OS !== 'web') Keyboard.dismiss();
+      let result: ImagePicker.ImagePickerResult;
       try {
-        const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ['images'], quality: 1 });
-        if (!result.canceled && result.assets[0]) setDialog({ kind: 'preview', asset: result.assets[0], type });
+        result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ['images'], quality: 1,
+          preferredAssetRepresentationMode: ImagePicker.UIImagePickerPreferredAssetRepresentationMode.Compatible,
+        });
       } catch {
         throw new Error('Could not open your photos. Check photo access and try again.');
       }
+      if (result.canceled) return;
+      const asset = result.assets[0];
+      if (!asset?.uri) throw new Error('The library did not return a photo. Choose it again.');
+      photoExtension(asset);
+      setDialog({ kind: 'preview', asset, type });
     });
   }
 
@@ -126,9 +138,8 @@ function Thread({ chat, thread, product }: { chat: ChatState; thread: Conversati
           <FormAction label="Transaction summary" disabled={busy} onPress={() => show({ kind: 'transaction' })} />
           {thread.arrangement ? <View style={styles.product}>
             <View style={styles.grow}>
-              <Text style={styles.name}>{thread.arrangement.method}</Text>
-              <Text style={styles.muted}>{thread.arrangement.day} · {thread.arrangement.time} · {thread.arrangement.area}</Text>
-              {thread.arrangement.instructions ? <Text style={styles.muted}>{thread.arrangement.instructions}</Text> : null}
+              <Text style={styles.name}>Accepted · {thread.arrangement.method}</Text>
+              <FulfillmentDetails arrangement={thread.arrangement} />
             </View>
           </View> : null}
         </View>}
@@ -139,9 +150,15 @@ function Thread({ chat, thread, product }: { chat: ChatState; thread: Conversati
           const previous = thread.messages[index - 1];
           const divider = !previous || new Date(previous.timestamp).toDateString() !== timestamp.toDateString();
           const uri = item.type === 'image' || item.type === 'payment' ? chat.attachments.get(item.attachment) : undefined;
+          const fulfillment = item.type === 'system' && (item.event === 'arrange' || item.event === 'request-delivery'
+            || item.event === 'propose' || item.event === 'respond') ? item : undefined;
           return <View>
             {divider ? <Text style={styles.day}>{timestamp.toLocaleDateString([], { month: 'long', day: 'numeric', year: 'numeric' })}</Text> : null}
-            <View style={[styles.bubble, outgoing && styles.outgoing, item.type === 'system' && styles.event]}>
+            {fulfillment ? <View style={styles.fulfillment}>
+              <FulfillmentCard message={fulfillment} thread={thread} role={role} busy={busy}
+                send={(event) => { void send(event); }} schedule={() => show({ kind: 'transaction', schedule: true })} />
+              <Text style={styles.timestamp}>{chatTime(item.timestamp)}</Text>
+            </View> : <View style={[styles.bubble, outgoing && styles.outgoing, item.type === 'system' && styles.event]}>
               {item.type === 'image' || item.type === 'payment' ? <>
                 <Text style={styles.name}>{describeMessage(item)}</Text>
                 {uri ? <Pressable accessibilityRole="button" accessibilityLabel="Enlarge attachment"
@@ -151,7 +168,7 @@ function Thread({ chat, thread, product }: { chat: ChatState; thread: Conversati
                 {item.type === 'payment' ? <Text style={styles.muted}>A screenshot does not verify payment.</Text> : null}
               </> : <Text style={styles.message}>{describeMessage(item)}</Text>}
               <Text style={styles.timestamp}>{chatTime(item.timestamp)}</Text>
-            </View>
+            </View>}
           </View>;
         }}
       />
@@ -165,7 +182,8 @@ function Thread({ chat, thread, product }: { chat: ChatState; thread: Conversati
       </View>
     </KeyboardAvoidingView>
     {dialog?.kind === 'transaction' ? <TransactionDialog thread={thread} product={product} role={role} busy={busy}
-      error={error} onClose={() => show()} send={send} choosePayment={() => show({ kind: 'payment' })} /> : null}
+      error={error} startScheduling={dialog.schedule} onClose={() => show()} send={send}
+      choosePayment={() => show({ kind: 'payment' })} /> : null}
     {dialog?.kind === 'payment' ? <ChatDialog title="Submit payment screenshot" busy={busy} onClose={() => show({ kind: 'transaction' })}>
       <Text style={styles.message}>Payment happens outside Red-shm. A screenshot records your claim and does not verify payment. This demo stores the image on this device and provides no escrow or payment protection.</Text>
       <Text style={styles.muted}>Use a demo screenshot with private account details removed.</Text>
@@ -217,6 +235,7 @@ const styles = StyleSheet.create({
     marginBottom: 7, backgroundColor: color.white, borderWidth: 1, borderColor: color.line },
   outgoing: { alignSelf: 'flex-end', backgroundColor: color.rose },
   event: { alignSelf: 'center', backgroundColor: color.sand },
+  fulfillment: { gap: 4, marginBottom: 10 },
   message: { fontSize: 15, lineHeight: 21, color: color.ink },
   timestamp: { fontSize: 11, color: color.muted, alignSelf: 'flex-end' },
   attachment: { width: 160, maxWidth: '100%', height: 120, borderRadius: 8, backgroundColor: color.sand },
